@@ -32,7 +32,9 @@ jobs:
 
       - name: 단위 테스트 실행 (Pytest)
         run: |
-          pytest tests/
+          python -m pytest tests/
+        env:
+          PYTHONPATH: .
 
       - name: 미술관 뉴스레터 수집 및 메일 발송 (Main Pipeline)
         env:
