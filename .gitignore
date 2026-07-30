@@ -1,0 +1,19 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Environment Variables (Keep API keys / passwords private!)
+.env
+
+# Python Cache & Testing
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# IDE / Editor Files
+.vscode/
+.idea/
+
+# Temp raw HTML cache files (optional, but good to exclude heavy cache)
+# *.html

@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE GLOBAL ART COMPASS - 10대 미술관 전시 동향</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 
+         * PREMIUM BRIGHT ORANGE AESTHETIC 
+         * Vibrant, energetic, with purple accents
+         */
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            /* Solid fallback for email clients that strip gradients */
+            background-color: #ff9a44;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-wrapper {
+            background: linear-gradient(135deg, #ffc371 0%, #ff5f6d 100%);
+            background-color: #ff9a44; /* Fallback */
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px 20px;
+            color: #ffffff;
+        }
+
+        /* --- Header --- */
+        .header {
+            text-align: center;
+            padding: 40px 0 60px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            margin-bottom: 50px;
+        }
+        
+        .header-tagline {
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin: 0;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 span {
+            /* The purple accent the user liked */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-style: italic;
+            display: inline-block;
+            background-color: #ffffff; /* fallback */
+            padding: 0 5px;
+            border-radius: 8px;
+        }
+
+        .header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        /* --- Museum Section --- */
+        .museum-section {
+            margin-bottom: 60px;
+        }
+
+        .museum-title {
+            font-size: 28px;
+            font-family: 'Playfair Display', serif;
+            color: #ffffff;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .museum-title::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.5) 0%, transparent 100%);
+            margin-left: 20px;
+        }
+
+        /* --- Exhibition Card (Clean White) --- */
+        .exhibition-card {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 25px;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+        }
+
+        .exhibition-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .exhibition-img {
+            width: 220px;
+            flex-shrink: 0;
+            background-color: #f0f0f0;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .exhibition-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .exhibition-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 12px 0;
+            color: #2c3e50;
+            line-height: 1.4;
+        }
+
+        .exhibition-date {
+            font-size: 14px;
+            font-weight: 400;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .exhibition-date span {
+            margin-right: 8px;
+            color: #ff5f6d; /* Orange accent */
+        }
+
+        .exhibition-link {
+            align-self: flex-start;
+            display: inline-block;
+            text-decoration: none;
+            /* Purple button */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(118, 75, 162, 0.4);
+        }
+
+        .exhibition-link:hover {
+            opacity: 0.9;
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.6);
+        }
+
+        .empty-msg {
+            color: rgba(255,255,255,0.8);
+            font-style: italic;
+            font-size: 15px;
+            padding: 20px 0;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+        
+        .footer strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .exhibition-card {
+                flex-direction: column;
+            }
+            .exhibition-img {
+                width: 100%;
+                height: 200px;
+            }
+            .header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="container">
+            <!-- HEADER -->
+            <div class="header">
+                <div class="header-tagline">Curated Art Intelligence</div>
+                <h1>The Global<br><span>Art Compass</span></h1>
+                <p>2026년 세계 10대 미술관, 당신을 기다리는 경이로운 예술의 순간들.</p>
+            </div>
+
+            <!-- MUSEUM SECTIONS -->
+            
+            <div class="museum-section">
+                <h2 class="museum-title">The Metropolitan Museum of Art</h2>
+                
+                
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://cdn.sanity.io/images/cctd4ker/production/201492f88a42d5c13dbcabbf79520a3c8a36e751-5120x2880.jpg?w=3840&q=75&fit=clip&auto=format');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Musical Bodies</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Musical BodiesThrough September 27
+                            </div>
+                            <a href="https://www.metmuseum.org/exhibitions/musical-bodies" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://cdn.sanity.io/images/cctd4ker/production/d25918d32e91614f036dc86e1e6624c790860b0b-5120x2880.jpg?w=3840&q=75&fit=clip&auto=format');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Costume Art</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Costume ArtThrough January 10, 2027
+                            </div>
+                            <a href="https://www.metmuseum.org/exhibitions/costume-art" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://cdn.sanity.io/images/cctd4ker/production/17308c995fb6ca1441655fd1bbfa540b20fc7093-5120x2880.jpg?w=3840&q=75&fit=clip&auto=format');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Giacometti in the Temple of Dendur</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Giacometti in the Temple of DendurThrough September 8
+                            </div>
+                            <a href="https://www.metmuseum.org/exhibitions/giacometti-in-the-temple-of-dendur" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://cdn.sanity.io/images/cctd4ker/production/1421654e887b123f803467dc6f4f82ff77a915dd-5120x2880.jpg?w=3840&q=75&fit=clip&auto=format');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Orientalism: Between Fact and Fantasy</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Orientalism: Between Fact and FantasyThrough February 28, 2027
+                            </div>
+                            <a href="https://www.metmuseum.org/exhibitions/orientalism-between-fact-and-fantasy" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://cdn.sanity.io/images/cctd4ker/production/faa31bd035c2df01bca661cac8934bdfd331b28d-5120x2880.jpg?w=3840&q=75&fit=clip&auto=format');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Creatures of Myth and Imagination: Europe and the Americas</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Creatures of Myth and Imagination: Europe and the AmericasThrough October 18
+                            </div>
+                            <a href="https://www.metmuseum.org/exhibitions/creatures-of-myth-and-imagination-europe-and-the-americas" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                
+            </div>
+            
+            <div class="museum-section">
+                <h2 class="museum-title">Tate Modern</h2>
+                
+                
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://media.tate.org.uk/aztate-prd-ew-dg-wgtail-st1-ctr-data/images/Frida_Kahlo_lead.max-500x500.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Frida: The Making of an Icon</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Until 3 Jan 2027
+                            </div>
+                            <a href="https://www.tate.org.uk/whats-on/tate-modern/frida-kahlo-the-making-of-an-icon" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://media.tate.org.uk/aztate-prd-ew-dg-wgtail-st1-ctr-data/images/Ana_Mendieta_lead_img.width-420.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Ana Mendieta</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Current / Upcoming
+                            </div>
+                            <a href="https://www.tate.org.uk/whats-on/tate-modern/ana-mendieta" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://media.tate.org.uk/aztate-prd-ew-dg-wgtail-st1-ctr-data/images/eminmybed.max-500x500.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Tracey Emin: A Second Life</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Until 31 Aug 2026
+                            </div>
+                            <a href="https://www.tate.org.uk/whats-on/tate-modern/tracey-emin" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://media.tate.org.uk/aztate-prd-ew-dg-wgtail-st1-ctr-data/images/Julio_Le_Parc_Instability_19591991_Lent_by_t.max-500x500.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Julio Le Parc: Light. Colour. Action.</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Until 3 May 2027
+                            </div>
+                            <a href="https://www.tate.org.uk/whats-on/tate-modern/julio-le-parc" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://media.tate.org.uk/aztate-prd-ew-dg-wgtail-st1-ctr-data/images/Global_Pictorialism.max-500x500.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Light and Magic: The Birth of Art Photography</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> 14 Oct 2026 – 21 Feb 2027
+                            </div>
+                            <a href="https://www.tate.org.uk/whats-on/tate-modern/light-and-magic" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                
+            </div>
+            
+            <div class="museum-section">
+                <h2 class="museum-title">The Louvre</h2>
+                
+                
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Michelangelo Rodin</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> 15 April – 20 July 2026
+                            </div>
+                            <a href="https://www.louvre.fr/en/exhibitions-and-events/exhibitions/michelangelo-rodin" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://api-www.louvre.fr/sites/default/files/2025-12/WEB_IVR44_20256800786NUCA-crop.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Martin Schongauer</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> 8 April – 20 July 2026
+                            </div>
+                            <a href="https://www.louvre.fr/en/exhibitions-and-events/exhibitions/martin-schongauer" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://api-www.louvre.fr/sites/default/files/2026-02/Gudea%20au%20vase%20jaillissant.JPG');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Primeval Waters</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> 20 May 2026 – 15 March 2027
+                            </div>
+                            <a href="https://www.louvre.fr/en/exhibitions-and-events/exhibitions/primeval-waters" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://api-www.louvre.fr/sites/default/files/2026-05/paon-element-d-automate-departement-des-arts-de-l-islam-tete-d-enfant-soufflant-aelolipyle-departement-des-objets-d-art.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Affinities</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> 24 June – 31 December 2026
+                            </div>
+                            <a href="https://www.louvre.fr/en/exhibitions-and-events/exhibitions/affinities" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://api-www.louvre.fr/sites/default/files/2026-04/claude-ii-ballin-1661-1754-bouquet-de-chandelier-a-deux-lumieres-paris-vers-1735-1736-argent-h-155-cm.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Michel Lacoste’s donation to the musée du Louvre</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> 26 June 2026 – 11 January 2027
+                            </div>
+                            <a href="https://www.louvre.fr/en/exhibitions-and-events/exhibitions/michel-lacoste-s-donation-to-the-musee-du-louvre" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                
+            </div>
+            
+            <div class="museum-section">
+                <h2 class="museum-title">National Gallery, London</h2>
+                
+                
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.nationalgallery.org.uk/media/sq5pr14q/zurbaran_angle-cut-image-and-copy-block-800x500.jpg?width=800&height=800&v=1dc531427ddc950');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Zurbarán</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Until 23 August 2026
+                            </div>
+                            <a href="https://www.nationalgallery.org.uk/exhibitions/zurbaran" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.nationalgallery.org.uk/media/m2bjzn5t/vey_exhibitionpage_e02_crops-social_600-x-600.jpg?rmode=crop&ranchor=center&width=800&height=800&quality=85&v=1dcf33a3e204ff0');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Take One Picture 2026</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Until 31 August 2026
+                            </div>
+                            <a href="https://www.nationalgallery.org.uk/exhibitions/take-one-picture-2026" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.nationalgallery.org.uk/media/3lalsg3z/waldmuller-sorolla-exhibition-listing-square-600-x-600.jpg?width=800&height=800&v=1dd08935672ed10');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Waldmüller: Landscapes</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Until 20 September 2026
+                            </div>
+                            <a href="https://www.nationalgallery.org.uk/exhibitions/waldmüller-landscapes" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.nationalgallery.org.uk/media/h4hcciro/renoir-and-love-exhibition-listing-square-phase-1-600-x-600.jpg?width=800&height=800&v=1dc2c80d3238a30');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Renoir and Love</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> 3 October 2026 – 31 January 2027
+                            </div>
+                            <a href="https://www.nationalgallery.org.uk/exhibitions/renoir-and-love" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.nationalgallery.org.uk/media/ubxfgmv0/yinka-shonibare-and-thomas-gainsborough-a-conversation_3-exhibition-listing-square-phase-1-600-x-600_resupply.jpg?rmode=crop&ranchor=center&width=800&height=800&quality=85&v=1dce21e2e03ced0');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Yinka Shonibare and Thomas Gainsborough: A Conversation</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> 15 October 2026 ‒ 7 February 2027
+                            </div>
+                            <a href="https://www.nationalgallery.org.uk/exhibitions/yinka-shonibare-and-thomas-gainsborough-a-conversation" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                
+            </div>
+            
+            <div class="museum-section">
+                <h2 class="museum-title">Victoria and Albert Museum (V&A)</h2>
+                
+                
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://assets-cdn.vam.ac.uk/2026/02/19/15/08/26/14060cee-c867-483c-8432-da5bf8b777e2/320.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Inside Aardman: Wallace & Gromit and Friends</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Closes Sunday, 15 November 2026
+                            </div>
+                            <a href="https://www.vam.ac.uk/exhibitions/inside-aardman-wallace-gromit-and-friends" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://assets-cdn.vam.ac.uk/2025/07/03/11/54/11/1034da80-81d2-4248-be15-5b08ff8bf928/320.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Schiaparelli: Fashion Becomes Art</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Closes Sunday, 8 November 2026
+                            </div>
+                            <a href="https://www.vam.ac.uk/exhibitions/schiaparelli" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://assets-cdn.vam.ac.uk/2026/04/13/17/46/24/366619cb-f388-44ea-b8ee-ffdabf60d01b/320.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">The Music is Black: A British Story</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Closes Sunday, 3 January 2027
+                            </div>
+                            <a href="https://www.vam.ac.uk/exhibitions/the-music-is-black-a-british-story" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://assets-cdn.vam.ac.uk/2025/11/26/11/22/49/6b64fdc3-871a-444b-b45b-5d519195fc84/320.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Rising Voices: Contemporary Art from Asia, Australia and the Pacific</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Closes Sunday, 10 January 2027
+                            </div>
+                            <a href="https://www.vam.ac.uk/exhibitions/rising-voices-contemporary-art-from-asia-australia-and-the-pacific" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://assets-cdn.vam.ac.uk/2026/06/09/08/47/23/29ed0644-08d8-4b64-a265-b17806fcdccd/320.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Constantinople to Istanbul: One City, Two Empires</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Opens Saturday, 7 November 2026
+                            </div>
+                            <a href="https://www.vam.ac.uk/exhibitions/constantinople-to-istanbul-one-city-two-empires" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                
+            </div>
+            
+            <div class="museum-section">
+                <h2 class="museum-title">Los Angeles County Museum of Art (LACMA)</h2>
+                
+                
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www-images.lacma.org/s3fs-public/styles/exhibition_listing/public/2025-08/fcw_more_horiz_crop.jpg?itok=hxYRDqcF');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Fashioning Chinese Women: Empire to Modernity</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Fashioning Chinese Women: Empire to ModernityJune 14–October 12, 2026BCAM, Level 2Fashioning Chinese Women: Empire to Modernity traces a century of transformation through more than 70 exquisite ensembles from Shanghai, Hong Kong, and America. It charts the…
+                            </div>
+                            <a href="https://www.lacma.org/art/exhibition/fashioning-chinese-women-empire-modernity" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www-images.lacma.org/s3fs-public/styles/exhibition_listing/public/2026-06/M88_91_20a%20%281%29%20%281%29.jpg?VersionId=CpJ1JYKWyY6Vkz_S30rudqUjleOkqCII&itok=r2Q4AAOq');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Danse Macabre: Death in Print from Durer to Dix</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Fashioning Chinese Women: Empire to ModernityJune 14–October 12, 2026BCAM, Level 2Fashioning Chinese Women: Empire to Modernity traces a century of transformation through more than 70 exquisite ensembles from Shanghai, Hong Kong, and America. It charts the…
+                            </div>
+                            <a href="https://www.lacma.org/art/exhibition/danse-macabre-death-print-durer-dix" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www-images.lacma.org/s3fs-public/styles/exhibition_listing/public/2026-06/M2005_70_101.jpg?VersionId=9E_WsWntiJeh82JHHGqJsE21wo0EgYO7&itok=OeFaFF8Q');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Pablo Picasso—Portraits in Disguise</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Fashioning Chinese Women: Empire to ModernityJune 14–October 12, 2026BCAM, Level 2Fashioning Chinese Women: Empire to Modernity traces a century of transformation through more than 70 exquisite ensembles from Shanghai, Hong Kong, and America. It charts the…
+                            </div>
+                            <a href="https://www.lacma.org/art/exhibition/pablo-picasso-portraits-disguise" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www-images.lacma.org/s3fs-public/styles/exhibition_listing/public/2026-06/EX9627-VW018_0.jpg?VersionId=WxcGoqflGv0dWcsW79dD5kcT7.WIBEgL&itok=IlR3UELT');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Christina Quarles: Now We’re There (And We’ Only Just Begun)</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Fashioning Chinese Women: Empire to ModernityJune 14–October 12, 2026BCAM, Level 2Fashioning Chinese Women: Empire to Modernity traces a century of transformation through more than 70 exquisite ensembles from Shanghai, Hong Kong, and America. It charts the…
+                            </div>
+                            <a href="https://www.lacma.org/art/exhibition/christina-quarles-now-were-there-and-we-only-just-begun" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www-images.lacma.org/s3fs-public/styles/exhibition_listing/public/2025-07/L1988-62-16_second_crop.jpg?VersionId=FsVFQsdHdumQgXnaffcRB2AZQ1vBIuW4&itok=jiiHQOb_');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Village Square: Gifts of Modern Art from the Pearlman Collection to the Brooklyn Museum, LACMA, and MoMA</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Fashioning Chinese Women: Empire to ModernityJune 14–October 12, 2026BCAM, Level 2Fashioning Chinese Women: Empire to Modernity traces a century of transformation through more than 70 exquisite ensembles from Shanghai, Hong Kong, and America. It charts the…
+                            </div>
+                            <a href="https://www.lacma.org/art/exhibition/village-square-gifts-modern-art-pearlman-collection-brooklyn-museum-lacma-and-moma" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                
+            </div>
+            
+            <div class="museum-section">
+                <h2 class="museum-title">Whitney Museum of American Art</h2>
+                
+                
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://whitneymedia.org/assets/image/833410/large_WMAA99949_BFA_53520_7759682_lpr.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Whitney Biennial 2026</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Through Aug 23
+                            </div>
+                            <a href="https://whitney.org/exhibitions/2026-biennial" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://whitneymedia.org/assets/image/833449/large_WMAA68946_WMAA68946_2014_29_536_cropped.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Andy Warhol Family Album</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Through Oct 19
+                            </div>
+                            <a href="https://whitney.org/exhibitions/andy-warhol-family-album" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://whitneymedia.org/assets/image/833379/large_Image-1_Hyundai-Terrace-Commission-Kelly-Akashi_-2026_Photo-Timothy-Schenck.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Hyundai Terrace Commission: Kelly Akashi</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Through Aug 23
+                            </div>
+                            <a href="https://whitney.org/exhibitions/kelly-akashi" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://whitneymedia.org/assets/image/833182/large_WMAA38139_31_722_cropped.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Mabel Dwight: Cool Head, Warm Heart</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Through Aug 30
+                            </div>
+                            <a href="https://whitney.org/exhibitions/mabel-dwight" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://whitneymedia.org/assets/image/833049/large_WMAA97701_02_251016_GPowell_Whitney_1409_v2_3x2_web.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">“Untitled” (America)</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> 
+                            </div>
+                            <a href="https://whitney.org/exhibitions/untitled-america" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                
+            </div>
+            
+            <div class="museum-section">
+                <h2 class="museum-title">Mori Art Museum, Tokyo</h2>
+                
+                
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.mori.art.museum/assets_c/2026/03/bnr_ron_mueck_1280_260318_en-thumb-1280x640-17303.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Ron Mueck</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> 2026.4.29 [Wed] - 9.23 [Wed]
+                            </div>
+                            <a href="https://www.mori.art.museum/en/exhibitions/ronmueck/index.html" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.mori.art.museum/assets_c/2026/05/bnr_mamcollection022_1280g_en-thumb-450xauto-17929.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">MAM Collection 022:Timoteus Anggawan Kusno</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Current / Upcoming
+                            </div>
+                            <a href="https://www.mori.art.museum/en/exhibitions/mamcollection022/index.html" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.mori.art.museum/assets_c/2026/03/bnr_mams023_1280_en-thumb-450xauto-17345.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">MAM Screen 023:Josh Kline</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Current / Upcoming
+                            </div>
+                            <a href="https://www.mori.art.museum/en/exhibitions/mamscreen023/index.html" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.mori.art.museum/assets_c/2026/03/bnr_mamr012_1280_en-thumb-450xauto-17338.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">MAM Research 012:Diasporic Memories - Korean Artists Living Beyond Borders</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Current / Upcoming
+                            </div>
+                            <a href="https://www.mori.art.museum/en/exhibitions/mamresearch012/index.html" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.mori.art.museum/assets_c/2026/06/bnr_mori_mariko_1280v2_en-thumb-1280x640-18179.jpg');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Mariko Mori: All That Shines</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> 2026.10.31 [Sat] - 2027.3.28 [Sun]
+                            </div>
+                            <a href="https://www.mori.art.museum/en/exhibitions/marikomori/index.html" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                
+            </div>
+            
+            <div class="museum-section">
+                <h2 class="museum-title">National Museum of Korea (NMK)</h2>
+                
+                
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.museum.go.kr/afile/previewThumbnail/fileMng_MUSEUM26060243693Pg9rM?siteCode=MUSEUM');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">The Korean Table: Food, Nature, and Life</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Jul-01-2026
+											~
+											Oct-25-2026
+                            </div>
+                            <a href="https://www.museum.go.kr/ENG/contents/E0202010000.do?schM=view&menuId=current&exhiSpThemId=3529713&listType=list" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.museum.go.kr/afile/previewThumbnail/fileMng_MUSEUM26060145592f8iim?siteCode=MUSEUM');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Amazing Thailand: Masterpieces of Thai Art</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Jun-23-2026
+											~
+											Sep-06-2026
+                            </div>
+                            <a href="https://www.museum.go.kr/ENG/contents/E0202010000.do?schM=view&menuId=current&exhiSpThemId=3529711&listType=list" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.museum.go.kr/afile/previewThumbnail/fileMng_MUSEUM26051442681yin4p?siteCode=MUSEUM');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Tour of National Treasures: Masterpieces Across the Country</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> May-19-2026
+											~
+											Nov-29-2026
+                            </div>
+                            <a href="https://www.museum.go.kr/ENG/contents/E0202010000.do?schM=view&menuId=current&exhiSpThemId=3549792&listType=list" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.museum.go.kr/afile/previewThumbnail/fileMng_MUSEUM26062339012CK3hw?siteCode=MUSEUM');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Evergreen Bamboo Through the Four Seasons Embodied in Ceramics</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Jun-23-2026
+											~
+											Jan-31-2027
+                            </div>
+                            <a href="https://www.museum.go.kr/ENG/contents/E0202010000.do?schM=view&menuId=current&exhiSpThemId=3588283&listType=list" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://www.museum.go.kr/afile/previewThumbnail/fileMng_MUSEUM26061738306K9RiX?siteCode=MUSEUM');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Kim Hongdo: Painting His Era</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> May-04-2026
+											~
+											Aug-02-2026
+                            </div>
+                            <a href="https://www.museum.go.kr/ENG/contents/E0202010000.do?schM=view&menuId=current&exhiSpThemId=3515965&listType=list" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                
+            </div>
+            
+            <div class="museum-section">
+                <h2 class="museum-title">Art Institute of Chicago</h2>
+                
+                
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://artic-web.imgix.net/427e5671-0dc1-486e-a284-fa49e60ccab4/_DSC3970.jpg?auto=compress%2Cformat&fit=min&q=80&rect=248%2C98%2C1648%2C929');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Jill Mulleady: The Passenger</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Sep 19, 2026 – Jan 18, 2027
+                            </div>
+                            <a href="https://www.artic.edu/exhibitions/10588/jill-mulleady-the-passenger" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://artic-web.imgix.net/5dbc42fd-353b-4d6d-b72d-9d14a86d946f/Panel6DTL_6.jpg?auto=compress%2Cformat&fit=min&q=80&rect=0%2C417%2C2781%2C1562');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Raqib Shaw: Paradise Lost</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Jun 07, 2025 – Nov 15, 2026
+                            </div>
+                            <a href="https://www.artic.edu/exhibitions/10569/raqib-shaw-paradise-lost" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://artic-web.imgix.net/72ce3618-c861-4a2d-9508-bd62f768c96c/J15379-int-Press300ppi%2C3000px%2CsRGB%2CJPEG.jpg?auto=compress%2Cformat&fit=min&q=80&rect=0%2C1228%2C2531%2C1423');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Vilhelm Hammershøi: Pictures from Home</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Jun 19, 2027 – Oct 03, 2027
+                            </div>
+                            <a href="https://www.artic.edu/exhibitions/10458/vilhelm-hammershoi-pictures-from-home" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('None');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">Forms in Fibers</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Jul 09, 1970 – Oct 04, 1970
+                            </div>
+                            <a href="https://www.artic.edu/exhibitions/6166" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card">
+                        <div class="exhibition-img" style="background-image: url('https://artic-web.imgix.net/bf432254-0c9c-449c-a6be-921eb04cefcb/IM041144_012-int.jpg?auto=compress%2Cformat&fit=min&q=80&rect=0%2C188%2C3000%2C1688');"></div>
+                        <div class="exhibition-content">
+                            <h3 class="exhibition-title">DEAD TIME</h3>
+                            <div class="exhibition-date">
+                                <span>✦</span> Apr 22, 2019 – Apr 28, 2019
+                            </div>
+                            <a href="https://www.artic.edu/exhibitions/9225/dead-time-a-crime-novel" class="exhibition-link" target="_blank">Discover</a>
+                        </div>
+                    </div>
+                    
+                
+            </div>
+            
+
+            <!-- FOOTER -->
+            <div class="footer">
+                <strong>Hermes Art Newsletter</strong><br>
+                본 메일은 Hermes 뉴스레터 자동화 시스템에 의해 2026년 최신 라이브 데이터를 기반으로 발송되었습니다.<br>
+                &copy; 2026 Hermes Intelligence. All rights reserved.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
