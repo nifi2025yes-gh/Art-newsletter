@@ -41,4 +41,4 @@ class BaseScraper(ABC):
         html = self.fetch_data()
         if html:
             return self.parse_data(html)
-        return []
+        return self.parse_data("")
