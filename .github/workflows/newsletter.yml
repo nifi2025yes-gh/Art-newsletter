@@ -1,14 +1,10 @@
-name: Museum Newsletter Automated Test & Pipeline
+name: Museum Newsletter Weekly Monday 9AM KST Pipeline
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch: # GitHub에서 버튼 클릭으로 수동 테스트 실행 가능
+  workflow_dispatch: # GitHub Actions 탭에서 버튼 클릭으로 즉시 테스트 실행 가능
   schedule:
-    # 매일 한국시간(KST) 오전 8시 실행 (UTC 기준 23:00)
-    - cron: '0 23 * * *'
+    # 매주 월요일 한국시간(KST) 오전 9시 정각 실행 (UTC 기준 월요일 00:00)
+    - cron: '0 0 * * 1'
 
 jobs:
   test-and-run:
@@ -36,10 +32,11 @@ jobs:
         env:
           PYTHONPATH: .
 
-      - name: 미술관 뉴스레터 수집 및 메일 발송 (Main Pipeline)
+      - name: 미술관 전시 정보 수집 및 구독자 전체 이메일 발송 (Main Pipeline)
         env:
           SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
           SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
+          GOOGLE_SHEET_ID: "1KBmevjBnX1kcxZvpBFShh6wRCRgmfT_EZTVmMBj9Y0Y"
         run: |
           python main.py
