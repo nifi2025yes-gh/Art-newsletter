@@ -37,6 +37,6 @@ jobs:
           SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
           SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
-          GOOGLE_SHEET_ID: "1KBmevjBnX1kcxZvpBFShh6wRCRgmfT_EZTVmMBj9Y0Y"
+          GOOGLE_SHEET_ID: "1fF_a3IyWbuJqu1xhzxpNBqpfl7FYzHuz_nFwFi_0MVU"
         run: |
           python main.py
