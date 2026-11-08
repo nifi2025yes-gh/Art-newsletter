@@ -8,22 +8,25 @@ import requests
 from templates import render_newsletter
 from mailer import NewsletterMailer
 
-# 구글 폼 응답이 연결된 구글 스프레드시트 ID
+# 구글 폼 응답이 실제 저장되는 구글 스프레드시트 ID 및 탭 GID 목록
 GOOGLE_SHEET_ID = os.getenv(
     "GOOGLE_SHEET_ID",
-    "1KBmevjBnX1kcxZvpBFShh6wRCRgmfT_EZTVmMBj9Y0Y"
+    "1fF_a3IyWbuJqu1xhzxpNBqpfl7FYzHuz_nFwFi_0MVU"
 )
 
 EMAIL_REGEX = re.compile(r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+")
 
 
 def fetch_subscribers_from_google_sheet(sheet_id: str) -> list[str]:
-    """구글 스프레드시트에서 구독자 이메일 목록을 자동으로 가져옵니다."""
+    """구글 스프레드시트(모든 응답 시트 탭 포함)에서 구독자 이메일 목록을 자동으로 가져옵니다."""
     if not sheet_id:
         return []
 
+    # 기본 시트 + '설문지 응답 시트1'(gid=445734083) + '설문지 응답 시트2'(gid=187989430) 모두 스캔
     csv_urls = [
+        f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=445734083",
         f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv",
+        f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=187989430",
         f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv",
     ]
 
@@ -40,8 +43,6 @@ def fetch_subscribers_from_google_sheet(sheet_id: str) -> list[str]:
                             email_lower = email.lower()
                             if email_lower not in found_emails:
                                 found_emails.append(email_lower)
-                if found_emails:
-                    break
         except Exception as e:
             print(f"구글 시트 구독자 조회 중 오류 ({url}): {e}")
 
@@ -95,7 +96,7 @@ def main():
 
     # 구글 시트에서 신청자 이메일 실시간 가져오기
     sheet_subscribers = fetch_subscribers_from_google_sheet(GOOGLE_SHEET_ID)
-    print(f"구글 시트에서 불러온 구독자 수: {len(sheet_subscribers)}명")
+    print(f"구글 시트에서 불러온 구독자 수: {len(sheet_subscribers)}명 -> {sheet_subscribers}")
 
     # 중복 제거하여 전체 구독자 리스트 완성
     subscribers = list(dict.fromkeys(base_subscribers + sheet_subscribers))
