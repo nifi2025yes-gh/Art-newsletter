@@ -4,268 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE GLOBAL ART COMPASS - 10대 미술관 전시 동향</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* 
-         * PREMIUM BRIGHT ORANGE AESTHETIC 
-         * Vibrant, energetic, with purple accents
-         */
-        body {
-            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            /* Solid fallback for email clients that strip gradients */
-            background-color: #ff9a44;
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        .main-wrapper {
-            background: linear-gradient(135deg, #ffc371 0%, #ff5f6d 100%);
-            background-color: #ff9a44; /* Fallback */
-            width: 100%;
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
-
-        .container {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 20px 20px;
-            color: #ffffff;
-        }
-
-        /* --- Header --- */
-        .header {
-            text-align: center;
-            padding: 40px 0 60px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            margin-bottom: 50px;
-        }
-        
-        .header-tagline {
-            font-size: 13px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            margin: 0;
-            font-weight: 600;
-            line-height: 1.2;
-            color: #ffffff;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header h1 span {
-            /* The purple accent the user liked */
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-style: italic;
-            display: inline-block;
-            background-color: #ffffff; /* fallback */
-            padding: 0 5px;
-            border-radius: 8px;
-        }
-
-        .header p {
-            color: rgba(255,255,255,0.9);
-            font-size: 16px;
-            font-weight: 400;
-            margin-top: 20px;
-            line-height: 1.6;
-        }
-
-        /* --- Museum Section --- */
-        .museum-section {
-            margin-bottom: 60px;
-        }
-
-        .museum-title {
-            font-size: 28px;
-            font-family: 'Playfair Display', serif;
-            color: #ffffff;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .museum-title::after {
-            content: "";
-            flex-grow: 1;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(255,255,255,0.5) 0%, transparent 100%);
-            margin-left: 20px;
-        }
-
-        /* --- Exhibition Card (Clean White) --- */
-        .exhibition-card {
-            display: flex;
-            flex-direction: row;
-            margin-bottom: 25px;
-            background: #ffffff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
-        }
-
-        .exhibition-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-        }
-
-        .exhibition-img {
-            width: 220px;
-            flex-shrink: 0;
-            background-color: #f0f0f0;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .exhibition-content {
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            flex-grow: 1;
-        }
-
-        .exhibition-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin: 0 0 12px 0;
-            color: #2c3e50;
-            line-height: 1.4;
-        }
-
-        .exhibition-date {
-            font-size: 14px;
-            font-weight: 400;
-            color: #7f8c8d;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .exhibition-date span {
-            margin-right: 8px;
-            color: #ff5f6d; /* Orange accent */
-        }
-
-        .exhibition-link {
-            align-self: flex-start;
-            display: inline-block;
-            text-decoration: none;
-            /* Purple button */
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #ffffff;
-            padding: 10px 24px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 15px rgba(118, 75, 162, 0.4);
-        }
-
-        .exhibition-link:hover {
-            opacity: 0.9;
-            transform: scale(1.03);
-            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.6);
-        }
-
-        .empty-msg {
-            color: rgba(255,255,255,0.8);
-            font-style: italic;
-            font-size: 15px;
-            padding: 20px 0;
-        }
-
-        /* --- Footer --- */
-        .footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.3);
-            font-size: 13px;
-            color: rgba(255,255,255,0.7);
-            line-height: 1.8;
-        }
-        
-        .footer strong {
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .exhibition-card {
-                flex-direction: column;
-            }
-            .exhibition-img {
-                width: 100%;
-                height: 200px;
-            }
-            .header h1 {
-                font-size: 32px;
-            }
-        }
-    </style>
 </head>
-<body>
-    <div class="main-wrapper">
-        <div class="container">
-            <!-- HEADER -->
-            <div class="header">
-                <div class="header-tagline">Curated Art Intelligence</div>
-                <h1>The Global<br><span>Art Compass</span></h1>
-                <p>2026년 세계 10대 미술관, 당신을 기다리는 경이로운 예술의 순간들.</p>
-            </div>
+<body style="margin: 0; padding: 0; background-color: #ff9a44; font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    <!-- 네이버/지메일 완벽 호환을 위한 100% 인라인 스타일 & 테이블 레이아웃 -->
+    {% set museum_fallbacks = {
+        'The Metropolitan Museum of Art': 'https://images.unsplash.com/photo-1575223970966-76ae61ee7838?auto=format&fit=crop&w=600&q=80',
+        'Tate Modern': 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80',
+        'The Louvre': 'https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&w=600&q=80',
+        'The National Gallery': 'https://images.unsplash.com/photo-1583265627959-fb7042f5133b?auto=format&fit=crop&w=600&q=80',
+        'Victoria and Albert Museum': 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80',
+        'LACMA': 'https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=600&q=80',
+        'Whitney Museum of American Art': 'https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=600&q=80',
+        'Mori Art Museum': 'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80',
+        '국립중앙박물관 (National Museum of Korea)': 'https://images.unsplash.com/photo-1546874177-9e664107314e?auto=format&fit=crop&w=600&q=80',
+        'The Art Institute of Chicago': 'https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=600&q=80'
+    } %}
+    {% set default_art_img = 'https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?auto=format&fit=crop&w=600&q=80' %}
 
-            <!-- MUSEUM SECTIONS -->
-            {% for museum, exhibitions in data.items() %}
-            <div class="museum-section">
-                <h2 class="museum-title">{{ museum }}</h2>
-                
-                {% if exhibitions %}
-                    {% for exh in exhibitions %}
-                    <div class="exhibition-card">
-                        <div class="exhibition-img" style="background-image: url('{{ exh.image_url }}');"></div>
-                        <div class="exhibition-content">
-                            <h3 class="exhibition-title">{{ exh.title }}</h3>
-                            <div class="exhibition-date">
-                                <span>✦</span> {{ exh.date }}
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ff9a44" style="background: linear-gradient(135deg, #ffc371 0%, #ff5f6d 100%); background-color: #ff9a44; width: 100%; margin: 0; padding: 30px 10px;">
+        <tr>
+            <td align="center">
+                <!-- 메인 컨테이너 (최대 660px) -->
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 660px; margin: 0 auto;">
+                    
+                    <!-- HEADER -->
+                    <tr>
+                        <td align="center" style="padding: 35px 20px 45px 20px; border-bottom: 1px solid rgba(255,255,255,0.35);">
+                            <div style="font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #fff5ea; margin-bottom: 14px; font-weight: 800;">
+                                CURATED ART INTELLIGENCE
                             </div>
-                            <a href="{{ exh.link }}" class="exhibition-link" target="_blank">Discover</a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                {% else %}
-                    <div class="empty-msg">현재 수집된 전시 정보가 없습니다. 곧 새로운 전시로 찾아오겠습니다.</div>
-                {% endif %}
-            </div>
-            {% endfor %}
+                            <h1 style="font-family: Georgia, 'Times New Roman', serif; font-size: 40px; margin: 0; font-weight: bold; line-height: 1.25; color: #ffffff;">
+                                The Global<br>
+                                <span style="display: inline-block; margin-top: 6px; padding: 4px 16px; background-color: #ffffff; color: #6b46c1; border-radius: 10px; font-style: italic; box-shadow: 0 4px 12px rgba(0,0,0,0.12);">Art Compass</span>
+                            </h1>
+                            <p style="color: #ffffff; font-size: 16px; font-weight: 500; margin: 20px 0 0 0; line-height: 1.6;">
+                                2026년 세계 10대 미술관, 당신을 기다리는 경이로운 예술의 순간들.
+                            </p>
+                        </td>
+                    </tr>
 
-            <!-- FOOTER -->
-            <div class="footer">
-                <strong>Hermes Art Newsletter</strong><br>
-                본 메일은 Hermes 뉴스레터 자동화 시스템에 의해 2026년 최신 라이브 데이터를 기반으로 발송되었습니다.<br>
-                &copy; 2026 Hermes Intelligence. All rights reserved.
-            </div>
-        </div>
-    </div>
+                    <!-- MUSEUM SECTIONS -->
+                    {% for museum, exhibitions in data.items() %}
+                    <tr>
+                        <td style="padding: 40px 10px 10px 10px;">
+                            <!-- 미술관 타이틀 -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 20px;">
+                                <tr>
+                                    <td style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; font-weight: bold; color: #ffffff; padding-bottom: 8px; border-bottom: 2px solid rgba(255,255,255,0.45);">
+                                        🏛️ {{ museum }}
+                                    </td>
+                                </tr>
+                            </table>
+
+                            {% if exhibitions %}
+                                {% for exh in exhibitions %}
+                                {% set raw_img = exh.image_url | default('', true) | trim %}
+                                {% if raw_img and raw_img.startswith('http') %}
+                                    {% set final_img = raw_img %}
+                                {% else %}
+                                    {% set final_img = museum_fallbacks.get(museum, default_art_img) %}
+                                {% endif %}
+
+                                <!-- 전시 카드 (화이트 라운드 박스) -->
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color: #ffffff; border-radius: 16px; overflow: hidden; margin-bottom: 22px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
+                                    <tr>
+                                        <!-- 왼쪽 전시 이미지 -->
+                                        <td width="210" valign="top" style="width: 210px; padding: 0; background-color: #f3f4f6;">
+                                            <a href="{{ exh.link }}" target="_blank" style="display: block; text-decoration: none;">
+                                                <img src="{{ final_img }}" alt="{{ exh.title }}" width="210" height="190" style="display: block; width: 210px; height: 190px; object-fit: cover; border: 0;" />
+                                            </a>
+                                        </td>
+                                        <!-- 오른쪽 전시 설명 및 보라색 버튼 -->
+                                        <td valign="middle" style="padding: 22px 24px; text-align: left;">
+                                            <h3 style="font-size: 19px; font-weight: 700; margin: 0 0 10px 0; color: #1e293b; line-height: 1.4;">
+                                                {{ exh.title }}
+                                            </h3>
+                                            <div style="font-size: 14px; font-weight: 500; color: #64748b; margin-bottom: 18px;">
+                                                <span style="color: #ff5f6d; font-weight: bold; margin-right: 6px;">✦</span>{{ exh.date }}
+                                            </div>
+                                            <div>
+                                                <a href="{{ exh.link }}" target="_blank" style="display: inline-block; text-decoration: none; background-color: #6b46c1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #ffffff; padding: 10px 24px; border-radius: 30px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">
+                                                    DISCOVER →
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                {% endfor %}
+                            {% else %}
+                                <div style="color: #ffffff; font-style: italic; font-size: 15px; padding: 15px 0;">
+                                    현재 수집된 전시 정보가 없습니다. 곧 새로운 전시로 찾아오겠습니다.
+                                </div>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                    <!-- 미술관 메이트 포털 바로가기 배너 추가 -->
+                    <tr>
+                        <td align="center" style="padding: 25px 10px 10px 10px;">
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#1e293b" style="background-color: #1e293b; border-radius: 16px; padding: 24px; text-align: center;">
+                                <tr>
+                                    <td align="center">
+                                        <div style="color: #DFC184; font-size: 12px; font-weight: bold; letter-spacing: 2px; margin-bottom: 6px;">WORLD CITY MUSEUM TOUR</div>
+                                        <div style="color: #ffffff; font-size: 18px; font-weight: bold; margin-bottom: 14px;">세계 30대 미술관 공식 홈페이지 & 추천 코스 한눈에 보기</div>
+                                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8Zz57ZvN8N2CSuBgkEdSipnIr_5ZfhOB97EBp7f3ZrN9caw/viewform" target="_blank" style="display: inline-block; text-decoration: none; background-color: #C5A059; color: #0f172a; padding: 10px 22px; border-radius: 25px; font-size: 13px; font-weight: bold;">
+                                            맞춤 미술관 여행 코스 & 설문 바로가기
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- FOOTER -->
+                    <tr>
+                        <td align="center" style="padding: 40px 20px 20px 20px; border-top: 1px solid rgba(255,255,255,0.35); font-size: 13px; color: #fff5ea; line-height: 1.8;">
+                            <strong style="color: #ffffff; font-size: 15px;">Hermes Art Newsletter · 미술관 메이트</strong><br>
+                            본 메일은 매주 월요일 오전 9시 세계 10대 미술관 최신 라이브 데이터를 기반으로 정기 발송됩니다.<br>
+                            &copy; 2026 Hermes Intelligence. All rights reserved.
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
